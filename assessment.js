@@ -23,7 +23,7 @@ function helloWorld() {
              lambdaSchool(8); // returns 8
 */
 
-function lambdaSchool() {
+function lambdaSchool(num) {
     if (num % 3 == 0 && num % 5 == 0){
       return "Lambda School";
     } else if (num % 3 == 0 && num % 5 != 0){
@@ -46,7 +46,7 @@ function lambdaSchool() {
              longestString(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
 */
 
-function longestString() {
+function longestString(strs) {
   var res = "";
   for (i = 0; i < strs.length; i++){
       if (strs[i].length > res.length){
@@ -80,19 +80,21 @@ function longestString() {
              computeUserAverageAge(users); // returns 62 (This number is rounded up from 61.6666)
 */
 
-function computeUserAverageAge() {
+function computeUserAverageAge(users) {
   res = [];
   for (i = 0; i < users.length; i++){
-    res.push(users[i][age])
+    objVal = Object.values(users[i])[1];
+    res.push(objVal)
+    console.log(objVal);
   } 
-  const avg = res.reduce((total, amount, index, array) => {
-    total += amount;
-    if (index === array.length - 1){
-      return total/array.length;
-    } else{
-      return total;
-    }
-  });
+  console.log(res);
+  total = 0;
+  for (i = 0; i < res.length; i++){
+    total += res[i];
+  }
+  console.log(Math.ceil(total/(res.length)));
+  return Math.ceil(total/(res.length));
+
 }
 
 module.exports = {
